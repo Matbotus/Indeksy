@@ -1,5 +1,5 @@
 ﻿#include <iostream>
-#include <curl/curl.h>
+//#include <curl/curl.h>
 #include <stdio.h>
 #include <fstream>
 #include <string>
