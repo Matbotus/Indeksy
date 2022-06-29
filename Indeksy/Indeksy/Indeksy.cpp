@@ -1,15 +1,22 @@
 ﻿#include <iostream>
-//#include <curl/curl.h>
+#include <sstream>
 #include <stdio.h>
 #include <fstream>
 #include <string>
+#include <curl/curl.h>
+#include <vector>
 
 using namespace std;
 
 const int x = 50;
 string tablica1[x];
 string tablica2[x];
-string tablica3[x];
+
+struct studenci //zadeklarowana struktura 
+{
+    string nazwa;
+    int indeks;
+};
 
 void tablicuj1()
 {
@@ -38,7 +45,7 @@ void tablicuj1()
 }
 void tablicuj2()
 {
-    int a = 1, b = 2;
+    int a = 1,b = 2;
 
     ifstream plik2;
     plik2.open("Tekst1.txt", ios::in);
@@ -47,18 +54,39 @@ void tablicuj2()
     {
         cout << "\n" "Plik 2 wczytany" << endl;
 
+        studenci student;
+        string line;
+       // int indeks;
+        string nazwa;
+
         while (!plik2.eof())
         {
             getline(plik2, tablica2[a += 2]);
-            getline(plik2, tablica3[b += 2]);
+            getline(plik2, tablica2[b += 2]);
         }
+
+
+
+      /*  while (getline(plik2, line))
+        {
+            
+            istringstream iss(line);
+
+            if (!(iss >> indeks >> nazwa))
+            { break; }
+            
+            
+        }
+
+        cout << indeks << endl;
+        cout << nazwa << endl; */
 
         plik2.close();
 
         for (int i = 0; i < b; i++)
         {
-            cout << tablica2[i];
-            cout << tablica3[i] << endl;
+            cout << tablica2[i] << endl;
+
         }
 
 
@@ -71,6 +99,7 @@ int main()
 {
     tablicuj1();
     tablicuj2();
+
 
 
     return 0;

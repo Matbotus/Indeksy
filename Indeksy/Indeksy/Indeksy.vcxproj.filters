@@ -20,14 +20,14 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <Text Include="Tekst.txt">
       <Filter>Pliki źródłowe</Filter>
     </Text>
     <Text Include="Tekst1.txt">
       <Filter>Pliki źródłowe</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
