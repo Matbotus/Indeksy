@@ -1,5 +1,5 @@
 ﻿#include <iostream>
-//#include <curl/curl.h>
+#include <curl/curl.h>
 #include <stdio.h>
 #include <fstream>
 #include <string>
@@ -8,7 +8,7 @@ using namespace std;
 
 const int x = 50;
 string tablica1[x];
-string tablica2[x][2];
+string tablica2[x];
 string tablica3[x];
 
 void tablicuj1()
@@ -28,7 +28,7 @@ void tablicuj1()
 
         for (int i = 0; i < a; i++)
             cout << tablica1[i] << endl;
-       
+
 
         //cout << tablica[1] << endl;
 
@@ -38,7 +38,7 @@ void tablicuj1()
 }
 void tablicuj2()
 {
-    int a = 1, b = 2; 
+    int a = 1, b = 2;
 
     ifstream plik2;
     plik2.open("Tekst1.txt", ios::in);
@@ -49,18 +49,18 @@ void tablicuj2()
 
         while (!plik2.eof())
         {
-            getline(plik2, tablica2[a+=2][1]);
-            getline(plik2, tablica3[b+=2]);
+            getline(plik2, tablica2[a += 2]);
+            getline(plik2, tablica3[b += 2]);
         }
 
         plik2.close();
 
         for (int i = 0; i < b; i++)
         {
-                cout << tablica2[i];   
-                cout << tablica3[i] << endl;
+            cout << tablica2[i];
+            cout << tablica3[i] << endl;
         }
-        //cout << tablica2[3] << endl;
+
 
 
     }
@@ -87,7 +87,7 @@ int main(void)
         fprintf(stderr, "Init failed\n"); //w razie błędu
         return EXIT_FAILURE;
     }
-   
+
    curl_easy_setopt(curl, CURLOPT_URL, "https://extranet.gumed.edu.pl/login.php?redir=;1,"); //pobranie okreslonej strony
 
    CURLcode result = curl_easy_perform(curl); // wykonanie okreslonych dzialan z pobrana strona
@@ -96,7 +96,7 @@ int main(void)
             {
             fprintf(stderr, "Download problem: %s\n", curl_easy_strerror(result));
             }
-            
+
     curl_easy_cleanup(curl);
     return EXIT_SUCCESS;
 
