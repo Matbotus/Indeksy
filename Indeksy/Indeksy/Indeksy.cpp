@@ -55,14 +55,18 @@ void tablicuj2()
         cout << "\n" "Plik 2 wczytany" << endl;
 
         studenci student;
-        string line;
-       // int indeks;
-        string nazwa;
-
+      
         while (!plik2.eof())
         {
-            getline(plik2, tablica2[a += 2]);
-            getline(plik2, tablica2[b += 2]);
+            //tworzenie obiektu student(x)
+
+
+            plik2 >> student.indeks;
+            getline(plik2, student.nazwa);
+
+            //dodanie obiektu student(x) do tablicy2
+
+
         }
 
 
@@ -89,6 +93,7 @@ void tablicuj2()
 
         }
 
+        //wywołanie elementów tablicy2 (obiektów - student zawierających nazwa, indeks)
 
 
     }
